@@ -5,14 +5,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-        
-        <img src="/images/profiles/{{$user->avatar}}" class="rounded-circle mx-auto d-block img-thumbnail" alt="Cinque Terre">
+        @if(Auth()->user()->avatar === null)
+            <img style="width: 200px; height: 200px" src="/images/static/default.png" class="rounded-circle mx-auto d-block img-thumbnail" alt="profile_pic_{{Auth()->user()->name}}">
+        @else
+            <img style="width: 200px; height: 200px" src="/images/profiles/{{Auth()->user()->avatar}}" class="rounded-circle mx-auto d-block img-thumbnail" alt="profile_pic_{{Auth()->user()->name}}">
+        @endif
         <br>
         <div class="row mx-auto d-block">
             <div class="d-flex justify-content-center">
 
               <button type="button" data-toggle="modal" data-target="#edit_avatar_modal" class="btn btn-secondary btn-sm">
-                @if($user->avatar === "default.png") 
+                @if($user->avatar === null) 
                   Add avatar 
                 @else 
                   Edit avatar 
@@ -47,7 +50,7 @@
                 @foreach ($user->posts as $p)
                     <div class="card  border-white">
                         <a href="/posts/{{ $p->id }}" >
-                            <img class="card-img-top rounded-conrners preview"  src="/images/{{ $p->path }}" alt="alt">
+                            <img class="card-img-top rounded-conrners preview"  src="/images/posts/{{ $p->path }}" alt="alt">
                         </a>
                         <div class="card-footer d-flex justify-content-between" style="background-color: transparent; border-top : none;">
                             <!-- <a href="/posts/{{ $p->id }}" >{{ $p->title }}</a> -->

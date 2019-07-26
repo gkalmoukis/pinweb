@@ -35,8 +35,11 @@
                 <li class="nav-item {{ Request::path() == '/profile' ? 'active' : ''  }} mr-2">
                     
                     <a href="/profile/{{ Auth()->id() }}">
-                        
-                        <img src="/images/profiles/{{Auth()->user()->avatar}}" alt="" class="avatar nav-mobile"> 
+                        @if(Auth()->user()->avatar === null)
+                            <img src="/images/static/default.png" alt="profile_pic_{{Auth()->user()->name}}" class="avatar nav-mobile">
+                        @else
+                            <img src="/images/profiles/{{Auth()->user()->avatar}}" alt="profile_pic_{{Auth()->user()->name}}" class="avatar nav-mobile"> 
+                        @endif
                         <span class="nav-pc">My profile</span> 
                     </a>
                 

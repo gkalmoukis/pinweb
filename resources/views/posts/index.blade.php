@@ -6,7 +6,7 @@
         @foreach ($posts as $p)
             <div class="card  border-white">
                 <a href="/posts/{{ $p->id }}" >
-                    <img class="card-img-top rounded-conrners preview"  src="/images/{{ $p->path }}" alt="alt">
+                    <img class="card-img-top rounded-conrners preview"  src="/images/posts/{{ $p->path }}" alt="alt">
                 </a>
                 <div class="card-footer d-flex justify-content-between" style="background-color: transparent; border-top : none;">
                     <!-- <a href="/posts/{{ $p->id }}" >{{ $p->title }}</a> -->

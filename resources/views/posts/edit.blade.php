@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    
+    <div class="container">
     <h1 class="text-center">Edit this post</h1>
 
     <br>
@@ -11,7 +11,7 @@
         <div class="form-row">
             <div class="col-md-6">
 
-                <img src="/images/{{$post->path}}" alt="..." class="rounded img-thumbnail" >
+                <img src="/images/posts/{{$post->path}}" alt="..." class="rounded img-thumbnail" >
 
                   
                 
@@ -34,4 +34,5 @@
         </div>    
         <a href="{{ url()->previous() }}" class="text-muted">Back</a>      
     </form>  
+    </div>
 @endsection

@@ -5,7 +5,7 @@
     <div class="row"> 
         <!-- image and back,edit and delete -->
         <div class="col-md-6">
-            <img src="/images/{{$post->path}}" class="img-fluid rounded" alt="Responsive image">
+            <img src="/images/posts/{{$post->path}}" class="img-fluid rounded" alt="Responsive image">
             <div class="row justify-content-between">
                 <div class="col-md-12">
                 <div class="float-left">
@@ -76,7 +76,11 @@
                              
                              <!-- Single Comment -->
                             <div class="media mb-4">
-                                <img class="d-flex mr-3 rounded-circle" src="/images/profiles/default.png" width="60" height="60"  alt="">
+                                @if(Auth()->user()->avatar === null)
+                                    <img class="d-flex mr-3 rounded-circle" src="/images/static/default.png" width="60" height="60"  alt="profile_pic_{{Auth()->user()->name}}">
+                                @else
+                                    <img class="d-flex mr-3 rounded-circle" src="/images/profiles/{{Auth()->user()->avatar}}" width="60" height="60"  alt="profile_pic_{{Auth()->user()->name}}">
+                                @endif
                                 <div class="media-body">
                                     <h5 class="mt-0"><strong>{{$comment->user->find($comment->user_id)->name}}</strong> <a class="text-secondary">{{$comment->created_at->format('d/m/Y')}}</a></h5>
                                     <p>{{$comment->body}}</p>

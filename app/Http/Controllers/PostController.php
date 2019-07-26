@@ -6,6 +6,9 @@ use \App\Like;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
+
+
 
 class PostController extends Controller
 {
@@ -54,7 +57,7 @@ class PostController extends Controller
 
             
 
-        Input::file('path')->move(public_path('images'), $imageName);
+        Input::file('path')->move(public_path('images/posts'), $imageName);
 
         $attributes['path'] = $imageName;
 
@@ -77,6 +80,7 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
+        Storage::delete($post->path);
         $post->delete();
         return redirect('/posts');
     }
