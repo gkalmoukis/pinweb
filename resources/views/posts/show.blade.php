@@ -6,10 +6,10 @@
         <!-- image and back,edit and delete -->
         <div class="col-md-6">
             <img src="/images/posts/{{$post->path}}" class="img-fluid rounded" alt="Responsive image">
-            <div class="row justify-content-between">
+            <div class="row justify-content-between mt-2">
                 <div class="col-md-12">
                 <div class="float-left">
-                    <a href="/posts" class="text-secondary">Back</a>
+                    <a href="/posts" class="text-secondary">< Back</a>
                 </div>
                 @auth
                 <div class="float-right">  
@@ -17,8 +17,12 @@
                         <form method="POST" action="/posts/{{ $post->id }}" class="form-inline">
                             @method('DELETE')
                             @csrf 
+                            <div class="form-group mb-2 mr-2">
                             <a href="/posts/{{ $post->id }}/edit" class="btn btn-secondary btn-sm mb-2">Edit post</a>
+                            </div>
+                            <div class="form-group mb-2">    
                             <button type="submit" class="btn btn-danger btn-sm mb-2">Delete</button>
+                            </div>
                         </form>
                     @endif
                 </div>
