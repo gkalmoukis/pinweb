@@ -12,7 +12,7 @@
 
         <form action="/search" method="GET" class="form-inline my-2 my-lg-0">
             @csrf
-            <input value="{{ old('search') }}" class="form-control mr-sm-2" type="search" placeholder="Search @users or posts" aria-label="Search" name="search">
+            <input value="{{ old('search') }}" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
         </form>
 
         <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
