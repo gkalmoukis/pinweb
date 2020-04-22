@@ -7,7 +7,7 @@
         </a>
         <a class="navbar-brand" href="{{ url('/posts') }}">
             <img src="http://placehold.it/50x50?text=logo" class="rounded-circle nav-mobile" alt=""> 
-            <span class="nav-pc">{{ config('app.name', 'Laravel') }}</span> 
+            <span class="nav-pc">PinWeb</span> 
         </a>
 
         <form action="/search" method="GET" class="form-inline my-2 my-lg-0">
